@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="main_fragment">Main Fragment</string>
+    <string name="detail_fragment">Detail Fragment</string>
 </resources>
