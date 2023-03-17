@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+
+    def TRUE = "true"
+    def FALSE = "false"
+    def CRASHLYTICS_ENABLED = "CRASHLYTICS_ENABLED"
+    def LOG_ENABLED = "LOG_ENABLED"
+    def BASE_URL = "BASE_URL"
+    def BASE_URL_STAGE = "\"https://rickandmortyapi.com/api/\""
+    def BASE_URL_PROD = "\"https://rickandmortyapi.com/api/\""
+
+    namespace 'com.mcmouse88.rickandmortyagain'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.mcmouse88.rickandmortyagain"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", CRASHLYTICS_ENABLED, TRUE
+            buildConfigField "boolean", LOG_ENABLED, FALSE
+            buildConfigField "String", BASE_URL, BASE_URL_PROD
+        }
+
+        debug {
+            minifyEnabled false
+            debuggable true
+            buildConfigField "boolean", CRASHLYTICS_ENABLED, FALSE
+            buildConfigField "boolean", LOG_ENABLED, TRUE
+            buildConfigField "String", BASE_URL, BASE_URL_STAGE
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
