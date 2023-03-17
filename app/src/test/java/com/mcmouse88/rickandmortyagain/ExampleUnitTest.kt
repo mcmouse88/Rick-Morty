@@ -1,4 +1,4 @@
-package com.mcmouse88.myapplication
+package com.mcmouse88.rickandmortyagain
 
 import org.junit.Test
 

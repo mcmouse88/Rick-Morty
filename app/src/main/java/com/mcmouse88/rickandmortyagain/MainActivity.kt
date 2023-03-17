@@ -1,4 +1,4 @@
-package com.mcmouse88.myapplication
+package com.mcmouse88.rickandmortyagain
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
